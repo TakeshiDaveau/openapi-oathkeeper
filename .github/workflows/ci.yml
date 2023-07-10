@@ -71,9 +71,15 @@ jobs:
         with:
           go-version: 1.19
 
+      - uses: docker/setup-qemu-action@v2
+        name: Run commands
+        id: runcmd
+        with:
+          platforms: arm64
+  
       - name: Build
-        run: arch -arm64 go build -o openapi-oathkeeper
-
+        run: go build -o openapi-oathkeeper
+        
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
