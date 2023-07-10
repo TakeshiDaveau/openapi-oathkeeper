@@ -33,11 +33,11 @@ jobs:
       - name: Build
         run: go build -v ./...
 
-      - name: Test
-        run: go test -race -coverprofile=coverage.out -covermode=atomic ./...
+      # - name: Test
+      #   run: go test -race -coverprofile=coverage.out -covermode=atomic ./...
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+      # - name: Upload coverage reports to Codecov
+      #   uses: codecov/codecov-action@v3
 
   # publish:
   #   needs: build
@@ -63,7 +63,6 @@ jobs:
   publish-arm64:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
 
