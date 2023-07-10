@@ -63,7 +63,7 @@ jobs:
             
   publish-arm64:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ARM64
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
